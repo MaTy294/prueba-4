@@ -1,44 +1,45 @@
-entrada = {}
+ntrada = {}
 
 def comprarEntrada():
-    nombre = input("ingrese su nombre")
+    nombre = input("Ingrese su nombre: ")
     if nombre == "":
-        print("el nombre no puede estar en blanco")
+        print("El nombre no puede estar en blanco")
         return
-    tipoEntrada = input("ingrese el tipo de entrada (G/V)").upper()
-    if tipoEntrada not in ["G", "V"]:
-        print("tipo de entrada invalido")
+    tipo = input("Ingrese el tipo de entrada (G/V): ").upper()
+    if tipo not in ["G", "V"]:
+        print("Tipo de entrada inválido")
         return
-    codigo = input("ingrese el codigo de confirmacion")
+    codigo = input("Ingrese el código de confirmación: ")
     if len(codigo) < 6:
-        print("el codigo debe tener minimo 6 caracteres")
+        print("El código debe tener mínimo 6 caracteres")
         return
-    entrada[nombre] = {"tipo": tipoEntrada, "codigo": codigo}
-    print("Entrada registrada con exito")
+    entrada[nombre] = {"tipo": tipo, "codigo": codigo}
+    print("Entrada registrada con éxito")
 
 def consultarComprador():
-    nombre=input("ingrese el nombre del comprador")
-    if nombre in comprarEntrada:
-        datos=comprarEntrada[nombre]
+    nombre = input("Ingrese el nombre del comprador: ")
+    if nombre in entrada:
+        print("Tipo de entrada:", entrada[nombre]["tipoo"]) 
+        print("Código de confirmación:", entrada[nombre]["codigo"])
     else:
         print("El comprador no se encuentra")
 
 def cancelarCompra():
-    nombre = input("ingrese el nombre del comprador")
+    nombre = input("Ingrese el nombre del comprador: ")
     if nombre in entrada:
         del entrada[nombre]
-        print("compra cancelada")
+        print("Compra cancelada")
     else:
-        print("no se pudo cancelar la compra")
+        print("No se pudo cancelar la compra")
 
 def menu():
     while True:
-        print("MENU PRINCIPAL")
+        print("\nMENU PRINCIPAL")
         print("1.- Comprar entrada.")
         print("2.- Consultar comprador.")
         print("3.- Cancelar compra.")
         print("4.- Salir.")
-        op = input("escoja la opcion que desea")
+        op = input("Escoja la opción que desea: ")
         if op == "1":
             comprarEntrada()
         elif op == "2":
@@ -46,9 +47,9 @@ def menu():
         elif op == "3":
             cancelarCompra()
         elif op == "4":
-            print("Adios!!")
+            print("Adiós!!")
             break
         else:
-            print("opcion no valida")
+            print("Opción no válida")
 
 menu()
