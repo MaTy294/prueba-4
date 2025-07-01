@@ -17,11 +17,9 @@ def comprarEntrada():
     print("Entrada registrada con exito")
 
 def consultarComprador():
-    nombre = input("ingrese el nombre del comprador")
-    if nombre in entrada:
-        datos = entrada[nombre]
-        print("Tipo de entrada:", datos["tipo"])
-        print("Código de confirmación:", datos["codigo"])
+    nombre=input("ingrese el nombre del comprador")
+    if nombre in comprarEntrada:
+        datos=comprarEntrada[nombre]
     else:
         print("El comprador no se encuentra")
 
